@@ -1,0 +1,8 @@
+.profiles table {width: 100%;}
+.profiles table thead {
+    border-bottom: 2px solid #ddd;
+}
+
+.profiles table thead tr th {
+    padding: 10px;
+}

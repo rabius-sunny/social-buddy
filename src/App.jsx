@@ -3,7 +3,9 @@ import {
 } from 'react-router-dom'
 import './App.css'
 import Home from './components/Home/Home/Home'
-import Profile from './components/Profile/Profile'
+import MyProfile from './components/MyProfile/MyProfile'
+import Profiles from './components/Profiles/Profiles'
+import Navbar from './components/Shared/Header/Navbar'
 import SinglePost from './components/SinglePost/SinglePost'
 
 const App = () => {
@@ -11,6 +13,7 @@ const App = () => {
   return (
     <div className="app">
       <RouteContainer>
+        <Navbar />
         <Switch>
           <Route path="/" exact>
             <Home />
@@ -19,7 +22,10 @@ const App = () => {
             <SinglePost />
           </Route>
           <Route path="/profile/user/:profile">
-            <Profile />
+            <MyProfile />
+          </Route>
+          <Route path="/allProfiles">
+            <Profiles />
           </Route>
         </Switch>
       </RouteContainer>

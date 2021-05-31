@@ -1,7 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
-import Navbar from "../Shared/Header/Navbar"
 
 const SinglePost = () => {
 
@@ -26,7 +25,6 @@ const SinglePost = () => {
     let { title, body } = post
     return (
         <div>
-            <Navbar />
             <section>
                 <div className="container">
                     <div className="shadow-sm p-5 post">
@@ -42,7 +40,7 @@ const SinglePost = () => {
                                 <p>{comment.body}</p>
                                 <p><small>{comment.email}</small></p>
                                 <hr />
-                            </div> )
+                            </div>)
                         }
                     </div>
                 </div>

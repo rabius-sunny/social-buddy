@@ -36,7 +36,7 @@ const Pagination = ({ data, pageLimit, dataLimit }) => {
 
                 {getPaginatedData().map((d, index) => <Post key={index} data={d} />)}
             </div>
-            <nav className="navbar myNav">
+            <nav className="navbar myNav justify-content-center pt-5">
                 <ul className="pagination">
                     <li className="page-item">
                         <button

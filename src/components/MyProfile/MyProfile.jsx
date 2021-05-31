@@ -1,7 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
-import Navbar from "../Shared/Header/Navbar"
 import Post from "../Shared/Post/Post"
 
 const Profile = () => {
@@ -27,7 +26,6 @@ const Profile = () => {
 
     return (
         <div>
-            <Navbar />
             <div className="container">
                 <section>
                     <p>Name: {name}</p>
