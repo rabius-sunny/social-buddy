@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom"
 
-const Post = ({title, body, userId, id}) => {
+const Post = props => {
+
+    const { title, body, userId, id } = props.data
+
     return (
         <div className="col">
             <div className="card h-100 shadow border-white">

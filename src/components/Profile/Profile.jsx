@@ -22,8 +22,6 @@ const Profile = () => {
 
     // eslint-disable-next-line
     let filteredPosts = posts.filter(post => post.userId == profile)
-    console.log(profile)
-    console.log(filteredPosts)
 
     let { name, username, email, address, phone, website, company } = user
 
@@ -44,10 +42,7 @@ const Profile = () => {
                     {
                         <div className="row row-cols-1 row-cols-md-3 row-cols-sm-2 row-cols-xs-1 g-4">
                             {
-                                filteredPosts.map(post => {
-                                    let { title, body, userId, id } = post
-                                    return <Post title={title} body={body} userId={userId} id={id} />
-                                })
+                                filteredPosts.map(post => <Post data={post} />)
                             }
                         </div>
                     }

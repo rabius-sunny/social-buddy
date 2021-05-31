@@ -1,7 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
-import Post from "../../Shared/Post/Post"
+import Pagination from '../../Shared/Pagination/Pagination'
 
 const Posts = () => {
 
@@ -13,18 +12,15 @@ const Posts = () => {
             .catch(error => console.log(error.message))
     }, [])
 
-    let tenPost = posts.slice(0, 15)
-    console.log(tenPost.length)
     return (
         <section className="posts">
             <div className="container">
-                <div className="row row-cols-1 row-cols-md-3 row-cols-sm-2 row-cols-xs-1 g-4">
-                    {
-                        tenPost.map(post => {
-                            let { title, body, userId, id } = post
-                            return <Post title={title} body={body} userId={userId} id={id} />
-                        })
-                    }
+                <div>
+                    <Pagination
+                        data={posts}
+                        pageLimit={5}
+                        dataLimit={10}
+                    />
                 </div>
 
             </div>
