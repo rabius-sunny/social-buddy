@@ -18,7 +18,7 @@ const SinglePost = () => {
             .then(res => setComments(res.data))
             .catch(error => console.log(error.message))
     }, [postId])
-
+    // eslint-disable-next-line
     let filteredComment = comments.filter(comment => comment.postId == postId)
     console.log(filteredComment)
 

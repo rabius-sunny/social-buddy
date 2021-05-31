@@ -7,6 +7,8 @@ import useSorting from './useSorting'
 const Profiles = () => {
 
     const [users, setUsers] = useState([])
+    const [searchIndex, setSearchIndex] = useState('')
+    const [selectValue, setSelectValue] = useState(0)
 
     useEffect(() => {
         axios.get('https://jsonplaceholder.typicode.com/users')
@@ -21,11 +23,34 @@ const Profiles = () => {
         }
         return sortConfig.key === name ? sortConfig.direction : undefined
     }
-    console.log(items)
+    let searchedItems = items.filter(item => {
+        switch (selectValue) {
+            case "1":
+                return item.name.toLowerCase().includes(searchIndex.toLowerCase())
+            case "2":
+                return item.email.toLowerCase().includes(searchIndex.toLowerCase())
+            case "3":
+                return item.website.toLowerCase().includes(searchIndex.toLowerCase())
+            default:
+                return item.name.toLowerCase().includes(searchIndex.toLowerCase())
+        }
+    })
+    console.log(searchedItems)
 
     return (
         <div className="container">
             <section className="profiles">
+                <div className="search mb-5">
+                    <div className="input-group mb-3">
+                        <select onChange={e => setSelectValue(e.target.value)} class="form-select">
+                            <option selected>Search by</option>
+                            <option value="1">Name</option>
+                            <option value="2">Email</option>
+                            <option value="3">Website</option>
+                        </select>
+                        <input type="text" onChange={e => setSearchIndex(e.target.value)} className="form-control w-75" />
+                    </div>
+                </div>
                 <table>
                     <thead>
                         <tr>
@@ -50,14 +75,14 @@ const Profiles = () => {
                                     onClick={() => requestSort('website')}
                                     className={getClassNamesFor('website')}
                                 >
-                                    Price
+                                    Website
                             </button>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            items.map(item => <tr>
+                            searchedItems.map(item => <tr>
 
                                 <Link to={`/profile/user/${item.id}`}><td>{item.name}</td></Link>
                                 <td>{item.email}</td>
