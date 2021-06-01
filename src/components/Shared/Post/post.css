@@ -5,3 +5,9 @@
 #dropBtn img:hover {
     color: red;
 }
+.card {
+    transition: all .3s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-10px);
+}
