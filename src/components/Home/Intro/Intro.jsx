@@ -16,14 +16,16 @@ const Intro = () => {
     }
     const handlePost = () => {
         let { title, body } = post
-        axios.post('https://jsonplaceholder.typicode.com/users/endPoint', {
-            title,
-            body
-        })
-            .then(res => console.log(res.status))
-            .catch(err => console.log(err.message))
-        alert('Posted Successfully! Go to Home.')
-        window.location.reload()
+        if (title !== '' && body !== '') {
+            axios.post('https://jsonplaceholder.typicode.com/users/endPoint', {
+                title,
+                body
+            })
+                .then(res => console.log(res.status))
+                .catch(err => console.log(err.message))
+            alert('Posted Successfully! Go to Home.')
+            window.location.reload()
+        } else alert('Please write something...')
     }
 
     return (

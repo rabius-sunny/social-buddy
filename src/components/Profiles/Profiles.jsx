@@ -1,14 +1,15 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
 import './profiles.css'
 import useSorting from './useSorting'
+import ProfilePagination from '../Shared/Pagination/ProfilePagination'
 
 const Profiles = () => {
 
     const [users, setUsers] = useState([])
     const [searchIndex, setSearchIndex] = useState('')
     const [selectValue, setSelectValue] = useState(0)
+    const [rowNumber, setRowNumber] = useState(3)
 
     useEffect(() => {
         axios.get('https://jsonplaceholder.typicode.com/users')
@@ -35,12 +36,11 @@ const Profiles = () => {
                 return item.name.toLowerCase().includes(searchIndex.toLowerCase())
         }
     })
-    console.log(searchedItems)
-
+    // let profilesPerPages = searchedItems.slice(0, rowNumber)
     return (
         <div className="container">
             <section className="profiles">
-                <div className="search mb-5">
+                <div className="mb-5 search">
                     <div className="input-group mb-3">
                         <select onChange={e => setSelectValue(e.target.value)} class="form-select">
                             <option selected>Search by</option>
@@ -50,12 +50,14 @@ const Profiles = () => {
                         </select>
                         <input type="text" onChange={e => setSearchIndex(e.target.value)} className="form-control w-75" placeholder="Search profiles by selected action" />
                     </div>
+                    <label htmlFor="rowNumber">Profiles per page :</label>
+                    <input className="form-control" onChange={e => setRowNumber(e.target.value)} type="number" name="profiles" defaultValue={3} id="rowNumber" />
                 </div>
                 <table>
                     <thead>
                         <tr>
                             <th id="sortBtn">
-                                <button 
+                                <button
                                     onClick={() => requestSort('name')}
                                     className={getClassNamesFor('name')}
                                 >
@@ -63,7 +65,7 @@ const Profiles = () => {
                             </button>
                             </th>
                             <th id="sortBtn">
-                                <button 
+                                <button
                                     onClick={() => requestSort('email')}
                                     className={getClassNamesFor('email')}
                                 >
@@ -71,7 +73,7 @@ const Profiles = () => {
                             </button>
                             </th>
                             <th id="sortBtn">
-                                <button 
+                                <button
                                     onClick={() => requestSort('website')}
                                     className={getClassNamesFor('website')}
                                 >
@@ -79,17 +81,11 @@ const Profiles = () => {
                             </button>
                             </th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            searchedItems.map(item => <tr>
-
-                                <Link to={`/profile/user/${item.id}`}><td>{item.name}</td></Link>
-                                <td>{item.email}</td>
-                                <td>{item.website}</td>
-                            </tr>)
-                        }
-                    </tbody>
+                    </thead>{console.log(Number(rowNumber))}
+                    <ProfilePagination
+                        data={searchedItems}
+                        dataLimit={Number(rowNumber)}
+                    />
                 </table>
             </section>
         </div>

@@ -11,14 +11,18 @@ const Navbar = () => {
                         <div className="row">
                             <div className="col-sm-8 col-md-7 py-4">
                                 <h4 className="text-white">About</h4>
-                                <p className="text-light">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                                <p className="text-light">Welcome to Social Buddy <small>_by Rabius Sunny</small> <br />
+                                This is dummy social blogging application made with ReactJs and Bootstrap5. <br />
+                                You can read, write, delete and update post here as another social platform. <br />
+                                So, what are you waiting for? Create a post now!
+                                </p>
                             </div>
                             <div className="col-sm-4 offset-md-1 py-4">
                                 <h4 className="text-white">Contact</h4>
                                 <ul className="list-unstyled">
-                                    <li><Link to="/" className="text-white">Follow on Twitter</Link></li>
-                                    <li><Link to="/" className="text-white">Like on Facebook</Link></li>
-                                    <li><Link to="/" className="text-white">Email me</Link></li>
+                                    <li><a href="https://github.com/rabius-sunny" target="_blank" rel="noreferrer" className="text-white">Follow on Github</a></li>
+                                    <li><a href="https://linkedin.com/in/rabius-sunny" target="_blank" rel="noreferrer" className="text-white">Connect in LinkedIn</a></li>
+                                    <li><a href="rabiussunny10@gmail.com" target="_blank" rel="noreferrer" className="text-white">Email me</a></li>
                                 </ul>
                             </div>
                         </div>

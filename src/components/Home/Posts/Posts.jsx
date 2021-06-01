@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import Pagination from '../../Shared/Pagination/Pagination'
+import PostPagination from '../../Shared/Pagination/PostPagination'
 
 const Posts = () => {
 
@@ -16,7 +16,7 @@ const Posts = () => {
         <section className="posts">
             <div className="container">
                 <div>
-                    <Pagination
+                    <PostPagination
                         data={posts}
                         pageLimit={5}
                         dataLimit={10}
