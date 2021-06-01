@@ -1,0 +1,7 @@
+#dropBtn {
+    background: none;
+    border: 0;
+}
+#dropBtn img:hover {
+    color: red;
+}

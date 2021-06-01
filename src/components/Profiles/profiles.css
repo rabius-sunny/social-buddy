@@ -2,7 +2,20 @@
 .profiles table thead {
     border-bottom: 2px solid #ddd;
 }
-
 .profiles table thead tr th {
+    padding: 10px 0;
+}
+#sortBtn {
     padding: 10px;
+}
+#sortBtn>button {
+    background: #ebebeb;
+    padding: 10px;
+    width: 100%;
+    text-align: start;
+    border: 0;
+    transition: all .2s ease-in-out;
+}
+#sortBtn>button:hover {
+    background: #ddd;
 }

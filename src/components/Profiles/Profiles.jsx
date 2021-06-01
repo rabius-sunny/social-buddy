@@ -48,30 +48,30 @@ const Profiles = () => {
                             <option value="2">Email</option>
                             <option value="3">Website</option>
                         </select>
-                        <input type="text" onChange={e => setSearchIndex(e.target.value)} className="form-control w-75" />
+                        <input type="text" onChange={e => setSearchIndex(e.target.value)} className="form-control w-75" placeholder="Search profiles by selected action" />
                     </div>
                 </div>
                 <table>
                     <thead>
                         <tr>
-                            <th>
-                                <button type="button"
+                            <th id="sortBtn">
+                                <button 
                                     onClick={() => requestSort('name')}
                                     className={getClassNamesFor('name')}
                                 >
                                     Name
                             </button>
                             </th>
-                            <th>
-                                <button type="button"
+                            <th id="sortBtn">
+                                <button 
                                     onClick={() => requestSort('email')}
                                     className={getClassNamesFor('email')}
                                 >
                                     Email
                             </button>
                             </th>
-                            <th>
-                                <button type="button"
+                            <th id="sortBtn">
+                                <button 
                                     onClick={() => requestSort('website')}
                                     className={getClassNamesFor('website')}
                                 >
