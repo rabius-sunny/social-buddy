@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import './profiles.css'
 import useSorting from './useSorting'
 import ProfilePagination from '../Shared/Pagination/ProfilePagination'
+import Spinner from "../Shared/Spinner"
 
 const Profiles = () => {
 
@@ -55,7 +56,7 @@ const Profiles = () => {
             <section className="profiles">
                 <div className="mb-5 search">
                     <div className="input-group mb-3">
-                        <select onChange={e => setSelectValue(e.target.value)} class="form-select">
+                        <select onChange={e => setSelectValue(e.target.value)} className="form-select">
                             <option selected>Search by</option>
                             <option value="1">Name</option>
                             <option value="2">Email</option>
@@ -66,43 +67,46 @@ const Profiles = () => {
                     <label htmlFor="rowNumber">Profiles per page :</label>
                     <input className="form-control" onChange={handleRowChange} type="number" name="profiles" defaultValue={localRowNumber} id="rowNumber" />
                 </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th id="sortBtn">
-                                <button
-                                    onClick={() => requestSort('name')}
-                                    className={getClassNamesFor('name')}
-                                >
-                                    <span>Name</span>
-                                    {getClassNamesFor('name') ? getClassNamesFor('name') : 'sort'}
-                                </button>
-                            </th>
-                            <th id="sortBtn">
-                                <button
-                                    onClick={() => requestSort('email')}
-                                    className={getClassNamesFor('email')}
-                                >
-                                    <span>Email</span>
-                                    {getClassNamesFor('email') ? getClassNamesFor('email') : 'sort'}
-                                </button>
-                            </th>
-                            <th id="sortBtn">
-                                <button
-                                    onClick={() => requestSort('website')}
-                                    className={getClassNamesFor('website')}
-                                >
-                                    <span>Website</span>
-                                    {getClassNamesFor('website') ? getClassNamesFor('website') : 'sort'}
-                                </button>
-                            </th>
-                        </tr>
-                    </thead>
-                    <ProfilePagination
-                        data={searchedItems}
-                        dataLimit={Number(rowNumber) || Number(localRowNumber) || 5}
-                    />
-                </table>
+                {
+                    !users.length ? <Spinner /> :
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th id="sortBtn">
+                                        <button
+                                            onClick={() => requestSort('name')}
+                                            className={getClassNamesFor('name')}
+                                        >
+                                            <span>Name</span>
+                                            {getClassNamesFor('name') ? getClassNamesFor('name') : 'sort'}
+                                        </button>
+                                    </th>
+                                    <th id="sortBtn">
+                                        <button
+                                            onClick={() => requestSort('email')}
+                                            className={getClassNamesFor('email')}
+                                        >
+                                            <span>Email</span>
+                                            {getClassNamesFor('email') ? getClassNamesFor('email') : 'sort'}
+                                        </button>
+                                    </th>
+                                    <th id="sortBtn">
+                                        <button
+                                            onClick={() => requestSort('website')}
+                                            className={getClassNamesFor('website')}
+                                        >
+                                            <span>Website</span>
+                                            {getClassNamesFor('website') ? getClassNamesFor('website') : 'sort'}
+                                        </button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <ProfilePagination
+                                data={searchedItems}
+                                dataLimit={Number(rowNumber) || Number(localRowNumber) || 5}
+                            />
+                        </table>
+                }
             </section>
         </div>
     )

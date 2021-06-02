@@ -1,6 +1,8 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import PostPagination from '../../Shared/Pagination/PostPagination'
+import Spinner from '../../Shared/Spinner'
+import './post.css'
 
 const Posts = () => {
 
@@ -16,11 +18,16 @@ const Posts = () => {
         <section className="posts">
             <div className="container">
                 <div>
+                    {
+                        !posts.length && <Spinner />
+                    }
                     <PostPagination
                         data={posts}
                         pageLimit={5}
                         dataLimit={10}
                     />
+                    {/* eslint-disable-next-line */}
+                    <p className="top"><a href="#">^</a></p>
                 </div>
 
             </div>

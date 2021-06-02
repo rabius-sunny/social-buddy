@@ -1,7 +1,10 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
-import Post from "../Shared/Post/Post"
+import logo from '../../images/logo.svg'
+import './profile.css'
+import PostPagination from "../Shared/Pagination/PostPagination"
+import Spinner from "../Shared/Spinner"
 
 const Profile = () => {
 
@@ -28,20 +31,40 @@ const Profile = () => {
         <div>
             <div className="container">
                 <section>
-                    <p>Name: {name}</p>
-                    <p>Username: @{username}</p>
-                    <p>Email: {email}</p>
-                    <p>Phone: {phone}</p>
-                    <p>Website: {website}</p>
-                    <p>Address: {address?.street}, {address?.city}</p>
-                    <p>Company: {company?.name}</p>
-                </section>
-                <section>
                     {
-                        <div className="row row-cols-1 row-cols-md-3 row-cols-sm-2 row-cols-xs-1 g-4">
-                            {
-                                filteredPosts.map(post => <Post data={post} />)
-                            }
+                        !posts.length && <Spinner />
+                    }
+                    {
+                        posts.length &&
+                        <div>
+                            <section>
+                                <div className="text-center primaryInfo">
+                                    <div><img src={logo} alt="profilePic" /></div>
+                                    <h2 className="mb-0">{name}</h2> <small>@{username}</small>
+                                    <p>{email}</p>
+                                </div>
+                                <div className="d-flex justify-content-evenly">
+                                    <div>
+                                        <p>Phone: {phone}</p>
+                                        <p>Website: {website}</p>
+                                    </div>
+                                    <div>
+                                        <p>Address: {address?.street}, {address?.city}</p>
+                                        <p>Company: {company?.name}</p>
+                                    </div>
+                                </div>
+                            </section>
+                            <section>
+                                <h2>Latest Post</h2>
+                                <hr className="mb-md-5" />
+                                <PostPagination
+                                    data={filteredPosts}
+                                    pageLimit={2}
+                                    dataLimit={5}
+                                />
+                                {/* eslint-disable-next-line */}
+                                <p className="top"><a href="#">^</a></p>
+                            </section>
                         </div>
                     }
                 </section>

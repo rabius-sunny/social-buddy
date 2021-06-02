@@ -33,30 +33,30 @@ const Intro = () => {
             <div className="container py-md-5 py-3 text-center rounded">
                 <h1>Hello There!</h1>
                 <p>Wanna write a post?</p>
-                <button type="button" class="inputBtn w-50" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">express whats on your mind... |</button>
+                <button type="button" className="inputBtn w-50" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">express whats on your mind... |</button>
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content text-start">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">New Post</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content text-start">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel">New Post</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
+                            <div className="modal-body">
                                 <form onSubmit={e => e.preventDefault()}>
-                                    <div class="mb-3">
-                                        <label for="title" class="col-form-label">Post Title :</label>
-                                        <input onChange={handleChange} name="title" type="text" class="form-control" id="title" />
+                                    <div className="mb-3">
+                                        <label htmlFor="title" className="col-form-label">Post Title :</label>
+                                        <input onChange={handleChange} name="title" type="text" className="form-control" id="title" />
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="body" class="col-form-label">Description :</label>
-                                        <textarea onChange={handleChange} name="body" class="form-control" id="body"></textarea>
+                                    <div className="mb-3">
+                                        <label htmlFor="body" className="col-form-label">Description :</label>
+                                        <textarea onChange={handleChange} name="body" className="form-control" id="body"></textarea>
                                     </div>
                                 </form>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button onClick={handlePost} type="submit" class="btn btn-outline-primary">Post</button>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button onClick={handlePost} type="submit" className="btn btn-outline-primary">Post</button>
                             </div>
                         </div>
                     </div>

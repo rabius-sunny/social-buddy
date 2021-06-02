@@ -13,7 +13,6 @@ const Post = props => {
         updatedTitle: '',
         updatedBody: ''
     })
-    console.log(currentPost)
     useEffect(() => {
         axios.get(`https://jsonplaceholder.typicode.com/posts/${currentId}`)
             .then(res => setCurrentPost(res.data))
@@ -73,11 +72,11 @@ const Post = props => {
                     <div className="modal-body">
                         <form>
                             <div className="mb-3">
-                                <label for="title" className="col-form-label">Title :</label>
+                                <label htmlFor="title" className="col-form-label">Title :</label>
                                 <input onChange={handleChange} name="updatedTitle" className="form-control" defaultValue={currentPost.title} />
                             </div>
                             <div className="mb-3">
-                                <label for="body" className="col-form-label">Body :</label>
+                                <label htmlFor="body" className="col-form-label">Body :</label>
                                 <textarea onChange={handleChange} name="updatedBody" className="form-control" defaultValue={currentPost.body}></textarea>
                             </div>
                         </form>

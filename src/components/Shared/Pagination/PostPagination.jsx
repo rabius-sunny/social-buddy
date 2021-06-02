@@ -4,7 +4,7 @@ import './pagination.css'
 
 const PostPagination = ({ data, pageLimit, dataLimit }) => {
 
-    const [pages] = useState(Math.round(data.length / dataLimit))
+    let pages = Math.ceil(data.length / dataLimit)
     const [currentPage, setCurrentPage] = useState(1)
 
     useEffect(() => {
