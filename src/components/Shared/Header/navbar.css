@@ -6,3 +6,8 @@
     text-decoration: none;
     color: white;
 }
+.logo{
+    background: #f0f2f5;
+    margin-right: 10px;
+    border-radius: 2px;
+}

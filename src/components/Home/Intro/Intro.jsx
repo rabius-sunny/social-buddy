@@ -29,8 +29,8 @@ const Intro = () => {
     }
 
     return (
-        <section className="container">
-            <div className="bg-light py-md-5 py-3 text-center rounded intro">
+        <section className="bg-light">
+            <div className="container py-md-5 py-3 text-center rounded">
                 <h1>Hello There!</h1>
                 <p>Wanna write a post?</p>
                 <button type="button" class="inputBtn w-50" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">express whats on your mind... |</button>
